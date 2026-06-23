@@ -1,0 +1,15 @@
+{
+  "name": "hausverwaltung-burchardt-kollegen",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Statische Website Hausverwaltung Burchardt & Kollegen (Vite-Build)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}

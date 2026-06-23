@@ -3,10 +3,14 @@
 Statische Website für den Bereich **Hausverwaltung** der Kanzlei
 Burchardt & Kollegen StBG PartG mbB (Dortmund / Ruhrgebiet).
 
-Die Seite ist als reine HTML/CSS-Website ohne Build-Schritt und ohne externe
-JavaScript-Abhängigkeiten umgesetzt. Sämtliches CSS und das wenige JavaScript
-(Scroll-Reveal-Effekt) sind direkt in den jeweiligen HTML-Dateien eingebettet.
-Einzige externe Ressource ist die Google-Font **Petrona**.
+Inhaltlich ist es eine reine HTML/CSS-Website: Sämtliches CSS und das wenige
+JavaScript (Scroll-Reveal-Effekt) sind direkt in den jeweiligen HTML-Dateien
+eingebettet, einzige externe Ressource ist die Google-Font **Petrona**.
+
+Damit die Seite auch auf Hosting-Umgebungen mit Framework-Erkennung (z. B.
+Hostinger „Web Apps") deploybar ist, liegt ein minimaler **[Vite](https://vitejs.dev/)**-Build
+darüber. Der Build transformiert die Seiten nicht inhaltlich – er kopiert die
+fertigen HTML-Seiten und die Assets aus `public/` nach `dist/`.
 
 Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
 (`prettier --print-width 100 --write "*.html"`).
@@ -23,29 +27,47 @@ Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
 | `ablauf.html`                  | Ablauf der Zusammenarbeit                   |
 | `ueber-uns.html`               | Über uns                                    |
 | `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |
-| `robots.txt`                   | Crawler-Steuerung                           |
-| `sitemap.xml`                  | XML-Sitemap                                 |
-| `og.jpg`                       | Vorschaubild für Social-Media-Sharing (1200×630) |
+| `public/robots.txt`            | Crawler-Steuerung (unverändert nach `dist/` kopiert) |
+| `public/sitemap.xml`           | XML-Sitemap                                 |
+| `public/og.jpg`                | Vorschaubild für Social-Media-Sharing (1200×630) |
+| `package.json`, `vite.config.js` | Build-Konfiguration (Vite, mehrseitig)    |
 
-## Lokale Vorschau
+> Alles unter `public/` wird beim Build unverändert ins Wurzelverzeichnis von
+> `dist/` übernommen (also z. B. erreichbar als `/og.jpg`, `/robots.txt`).
 
-Da es sich um statische Dateien handelt, genügt ein einfacher Webserver:
+## Lokale Entwicklung & Build
+
+Voraussetzung: Node.js (18+).
 
 ```bash
-# Python 3
-python3 -m http.server 8000
-# danach im Browser: http://localhost:8000
+npm install        # einmalig Abhängigkeiten installieren
+npm run dev        # Dev-Server mit Live-Reload (http://localhost:5173)
+npm run build      # Produktions-Build nach dist/
+npm run preview    # gebauten Stand aus dist/ lokal testen
 ```
 
-Alternativ kann `index.html` direkt im Browser geöffnet werden.
+Der Build erzeugt das Verzeichnis `dist/` mit allen Seiten und Assets –
+genau das, was ausgeliefert wird.
 
 ## Deployment
 
-Die Website kann auf jedem Static-Hosting bereitgestellt werden
-(z. B. GitHub Pages, Netlify, klassisches Webhosting). Die Dateien liegen im
-Repository-Wurzelverzeichnis; die internen Links und die `sitemap.xml` gehen
-von einer Auslieferung im Root unter der Domain
-`https://www.burchardt-hausverwaltung.de/` aus.
+### Hostinger „Web Apps" (Framework-Deployment)
+
+Hostinger erkennt das Projekt automatisch als Vite-App. Falls Werte manuell
+einzutragen sind:
+
+| Feld            | Wert            |
+| --------------- | --------------- |
+| Branch          | `main`          |
+| Install-Befehl  | `npm install`   |
+| Build-Befehl    | `npm run build` |
+| Ausgabe-/Publish-Verzeichnis | `dist`   |
+
+### Klassisches Static-Hosting (FTP / `public_html`)
+
+`npm run build` ausführen und den **Inhalt von `dist/`** ins Web-Wurzel­verzeichnis
+(`public_html`) hochladen. Interne Links und `sitemap.xml` gehen von einer
+Auslieferung im Root unter `https://www.burchardt-hausverwaltung.de/` aus.
 
 ## Anbindung an die Hauptseite
 
