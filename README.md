@@ -19,7 +19,7 @@ Einzige externe Ressource sind die Google Fonts (Aleo, Petrona).
 | `digitale-hausverwaltung.html` | Leistung: Digitale Hausverwaltung           |
 | `ablauf.html`                  | Ablauf der Zusammenarbeit                   |
 | `ueber-uns.html`               | Über uns                                    |
-| `kontakt.html`                 | Kontakt / Erstgespräch (Formular)           |
+| `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |
 | `robots.txt`                   | Crawler-Steuerung                           |
 | `sitemap.xml`                  | XML-Sitemap                                 |
 
@@ -43,23 +43,26 @@ Repository-Wurzelverzeichnis; die internen Links und die `sitemap.xml` gehen
 von einer Auslieferung im Root unter der Domain
 `https://www.burchardt-hausverwaltung.de/` aus.
 
+## Anbindung an die Hauptseite
+
+Diese Website ist als Unterauftritt der Kanzlei-Hauptseite
+`https://www.burchardt-kollegen.de/` angelegt. Rechtstexte und Kontakt werden
+zentral über die Hauptseite abgewickelt:
+
+- **Impressum** → `https://www.burchardt-kollegen.de/impressum/`
+- **Datenschutzerklärung** → `https://www.burchardt-kollegen.de/datenschutzerklaerung/`
+- **Kontakt** → `https://www.burchardt-kollegen.de/kontakt/`
+
+Alle Footer- und Navigationslinks verweisen direkt auf diese Seiten. Die frühere
+Kontaktseite (`kontakt.html`) enthält kein eigenes Formular mehr, sondern leitet
+per `meta refresh` auf die Kontaktseite der Hauptseite weiter (`noindex`, damit
+sie nicht separat indexiert wird).
+
 ## Offene Punkte (vor dem Livegang zu klären)
 
-Diese Punkte sind in der aktuellen Fassung noch offen und sollten vor einer
-Veröffentlichung ergänzt bzw. angepasst werden:
-
-- **Impressum & Datenschutzerklärung fehlen.** Alle Seiten verlinken im
-  Footer auf `impressum.html` und `datenschutz.html`; diese Dateien existieren
-  noch nicht. Beide Seiten sind in Deutschland rechtlich verpflichtend
-  (§ 5 DDG / Impressumspflicht, DSGVO-Informationspflichten) und müssen mit
-  geprüften, rechtsverbindlichen Inhalten erstellt werden.
-- **Kontaktformular ohne Funktion.** Das Formular in `kontakt.html` nutzt
-  `action="#"` und versendet keine Daten. Es muss an einen Versand-Endpunkt
-  (Formmailer, Backend oder Formular-Dienst) angebunden werden. Dabei sind die
-  datenschutzrechtlichen Anforderungen (Einwilligung, Verschlüsselung) zu
-  beachten.
-- **Platzhalter-Telefonnummer.** Die Nummer `+49 231 0000000` (in
-  `kontakt.html` und im strukturierten Daten-Markup) ist ein Platzhalter und
-  durch die echte Rufnummer zu ersetzen.
+- **Platzhalter-Telefonnummer.** Die Nummer `+49 231 0000000` im
+  strukturierten Daten-Markup (JSON-LD in `index.html`, `ablauf.html`,
+  `ueber-uns.html`) ist ein Platzhalter und durch die echte Rufnummer zu
+  ersetzen.
 - **Open-Graph-Bild.** Im strukturierten Daten-Markup wird `og.jpg`
   referenziert; eine entsprechende Bilddatei ist noch zu hinterlegen.
