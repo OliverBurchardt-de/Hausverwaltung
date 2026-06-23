@@ -6,7 +6,10 @@ Burchardt & Kollegen StBG PartG mbB (Dortmund / Ruhrgebiet).
 Die Seite ist als reine HTML/CSS-Website ohne Build-Schritt und ohne externe
 JavaScript-Abhängigkeiten umgesetzt. Sämtliches CSS und das wenige JavaScript
 (Scroll-Reveal-Effekt) sind direkt in den jeweiligen HTML-Dateien eingebettet.
-Einzige externe Ressource sind die Google Fonts (Aleo, Petrona).
+Einzige externe Ressource ist die Google-Font **Petrona**.
+
+Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
+(`prettier --print-width 100 --write "*.html"`).
 
 ## Seitenstruktur
 
@@ -22,6 +25,7 @@ Einzige externe Ressource sind die Google Fonts (Aleo, Petrona).
 | `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |
 | `robots.txt`                   | Crawler-Steuerung                           |
 | `sitemap.xml`                  | XML-Sitemap                                 |
+| `og.jpg`                       | Vorschaubild für Social-Media-Sharing (1200×630) |
 
 ## Lokale Vorschau
 
@@ -67,11 +71,31 @@ Akzent, durchgängig die Serifenschrift **Petrona**. Übernommene
 Gestaltungselemente der Hauptseite sind der **goldene Footer**, das **weiße
 Logo-Banner** im Header und **diagonale Sektionskanten**.
 
+## SEO
+
+Die Seiten folgen gängigen SEO-Best-Practices:
+
+- Pro Seite genau eine `<h1>`, logische Überschriften­hierarchie, semantisches
+  HTML (`header`, `main`, `nav`, `section`, `footer`).
+- Eigene, längengerechte `<title>` und `meta description` je Seite,
+  selbstreferenzierende `canonical`-URL (Startseite kanonisch auf Root `/`,
+  konsistent mit der `sitemap.xml`).
+- Open-Graph- **und** Twitter-Card-Tags inkl. Vorschaubild (`og.jpg`,
+  1200×630) für ansprechende Linkvorschauen.
+- Strukturierte Daten (JSON-LD): `ProfessionalService` und `WebSite` auf der
+  Startseite, `Service` auf den Leistungsseiten sowie `BreadcrumbList` und
+  `FAQPage` auf den Unterseiten.
+- `robots.txt` mit Sitemap-Verweis, vollständige `sitemap.xml`,
+  `lang="de"`, `theme-color`, Skip-Link und Fokus-Stile.
+- Performance: Fonts mit `preconnect` und `display=swap`, kein Render-blocking
+  JavaScript, keine externen Frameworks.
+
 ## Offene Punkte (vor dem Livegang zu klären)
 
 - **Telefonnummer.** Aktuell ist keine Telefonnummer hinterlegt (der frühere
   Platzhalter wurde aus dem JSON-LD entfernt). Bei Bedarf eine echte Rufnummer
   in den `ProfessionalService`-Daten (`index.html`, `ablauf.html`,
   `ueber-uns.html`) ergänzen.
-- **Open-Graph-Bild.** Im strukturierten Daten-Markup wird `og.jpg`
-  referenziert; eine entsprechende Bilddatei ist noch zu hinterlegen.
+- **Open-Graph-Bild.** Ein gebrandetes `og.jpg` (1200×630) ist hinterlegt. Es
+  kann bei Bedarf durch ein finales Motiv (z. B. mit echtem Foto) ersetzt
+  werden – Dateiname und Maße beibehalten.
