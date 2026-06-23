@@ -56,13 +56,22 @@ zentral über die Hauptseite abgewickelt:
 Alle Footer- und Navigationslinks verweisen direkt auf diese Seiten. Die frühere
 Kontaktseite (`kontakt.html`) enthält kein eigenes Formular mehr, sondern leitet
 per `meta refresh` auf die Kontaktseite der Hauptseite weiter (`noindex`, damit
-sie nicht separat indexiert wird).
+sie nicht separat indexiert wird). Adresse (Kronenburgallee 2, 44141 Dortmund)
+und E-Mail wurden an die Angaben der Hauptseite angeglichen.
+
+## Gestaltung
+
+Farbwelt und Typografie sind an die Hauptseite angeglichen: warmes Gold, Navy
+(`#3A5791`), Periwinkle-Blau (`#3f6db2`) und Orange-Rot (`#E94E1B`) als
+Akzent, durchgängig die Serifenschrift **Petrona**. Übernommene
+Gestaltungselemente der Hauptseite sind der **goldene Footer**, das **weiße
+Logo-Banner** im Header und **diagonale Sektionskanten**.
 
 ## Offene Punkte (vor dem Livegang zu klären)
 
-- **Platzhalter-Telefonnummer.** Die Nummer `+49 231 0000000` im
-  strukturierten Daten-Markup (JSON-LD in `index.html`, `ablauf.html`,
-  `ueber-uns.html`) ist ein Platzhalter und durch die echte Rufnummer zu
-  ersetzen.
+- **Telefonnummer.** Aktuell ist keine Telefonnummer hinterlegt (der frühere
+  Platzhalter wurde aus dem JSON-LD entfernt). Bei Bedarf eine echte Rufnummer
+  in den `ProfessionalService`-Daten (`index.html`, `ablauf.html`,
+  `ueber-uns.html`) ergänzen.
 - **Open-Graph-Bild.** Im strukturierten Daten-Markup wird `og.jpg`
   referenziert; eine entsprechende Bilddatei ist noch zu hinterlegen.
