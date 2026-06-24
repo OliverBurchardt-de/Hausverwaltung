@@ -1,7 +1,7 @@
 # Hausverwaltung – Burchardt & Kollegen
 
 Statische Website für den Bereich **Hausverwaltung** der Kanzlei
-Burchardt & Kollegen StBG PartG mbB (Dortmund / Ruhrgebiet).
+Burchardt & Kollegen GmbH Wirtschaftsprüfungsgesellschaft (Dortmund / Ruhrgebiet).
 
 Inhaltlich ist es eine reine HTML/CSS-Website. Das gemeinsame CSS aller
 Inhaltsseiten liegt zentral in **`public/assets/style.css`** und wird per
@@ -79,7 +79,7 @@ einzutragen sind:
 
 `npm run build` ausführen und den **Inhalt von `dist/`** ins Web-Wurzel­verzeichnis
 (`public_html`) hochladen. Interne Links und `sitemap.xml` gehen von einer
-Auslieferung im Root unter `https://www.burchardt-hausverwaltung.de/` aus.
+Auslieferung im Root unter `https://burchardt-hausverwaltung.de/` aus.
 
 ## Anbindung an die Hauptseite
 
