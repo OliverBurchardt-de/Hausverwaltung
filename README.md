@@ -34,6 +34,7 @@ Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
 | `weg-verwaltung.html`          | Leistung: WEG-Verwaltung                    |
 | `digitale-hausverwaltung.html` | Leistung: Digitale Hausverwaltung           |
 | `verwaltung-und-steuerberatung.html` | Verzahnung von Hausverwaltung & Steuerberatung (für Kapitalanleger) |
+| `technisches-gebaeudemanagement.html` | Leistung: Technisches Gebäudemanagement (Koordination über Netzwerk) |
 | `ablauf.html`                  | Ablauf der Zusammenarbeit                   |
 | `ueber-uns.html`               | Über uns                                    |
 | `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |

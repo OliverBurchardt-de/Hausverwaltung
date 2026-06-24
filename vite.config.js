@@ -16,6 +16,7 @@ export default defineConfig({
         "weg-verwaltung": resolve(__dirname, "weg-verwaltung.html"),
         "digitale-hausverwaltung": resolve(__dirname, "digitale-hausverwaltung.html"),
         "verwaltung-und-steuerberatung": resolve(__dirname, "verwaltung-und-steuerberatung.html"),
+        "technisches-gebaeudemanagement": resolve(__dirname, "technisches-gebaeudemanagement.html"),
         ablauf: resolve(__dirname, "ablauf.html"),
         "ueber-uns": resolve(__dirname, "ueber-uns.html"),
         kontakt: resolve(__dirname, "kontakt.html"),
