@@ -1,0 +1,14 @@
+# Sicherheits-Header (Apache/LiteSpeed – Hostinger unterstützt mod_headers)
+<IfModule mod_headers.c>
+  # Verhindert MIME-Type-Sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Referrer nur sparsam mitsenden
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Nicht benötigte Browser-Features deaktivieren
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+  # HTTPS erzwingen (bewusst OHNE preload – erst nach stabilem Betrieb erweitern)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Hinweis: Eine echte Content-Security-Policy (eigene Assets + forms.cloud.microsoft
+# + fonts) sollte separat getestet eingeführt werden, um nichts zu blockieren.

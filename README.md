@@ -3,12 +3,18 @@
 Statische Website für den Bereich **Hausverwaltung** der Kanzlei
 Burchardt & Kollegen StBG PartG mbB (Dortmund / Ruhrgebiet).
 
-Inhaltlich ist es eine reine HTML/CSS-Website: Sämtliches CSS und das wenige
-JavaScript (Scroll-Reveal-Effekt) sind direkt in den jeweiligen HTML-Dateien
-eingebettet. Es werden **keine externen Ressourcen** geladen – die Schrift
-**Petrona** ist selbst gehostet (`public/fonts/`, eingebunden per `@font-face`
-mit `font-display: swap`). Das vermeidet render-blockierende CDN-Anfragen und
-ist DSGVO-konform (keine Übertragung von Besucher-IPs an Google Fonts).
+Inhaltlich ist es eine reine HTML/CSS-Website. Das gemeinsame CSS aller
+Inhaltsseiten liegt zentral in **`public/assets/style.css`** und wird per
+`<link rel="stylesheet">` eingebunden (eine Quelle statt pro Seite dupliziert);
+das wenige JavaScript (Scroll-Reveal-Effekt) ist je Seite eingebettet. Es werden
+**keine externen Ressourcen von Dritten** geladen – die Schrift **Petrona** ist
+selbst gehostet (`public/fonts/`, eingebunden per `@font-face` mit
+`font-display: swap`). Das vermeidet render-blockierende CDN-Anfragen und ist
+DSGVO-konform (keine Übertragung von Besucher-IPs an Google Fonts).
+
+Sicherheits-Header (u. a. `X-Content-Type-Options`, `Referrer-Policy`,
+`Permissions-Policy`, `Strict-Transport-Security`) liefert die Datei
+**`public/.htaccess`** aus (Apache/LiteSpeed – von Hostinger unterstützt).
 
 Damit die Seite auch auf Hosting-Umgebungen mit Framework-Erkennung (z. B.
 Hostinger „Web Apps") deploybar ist, liegt ein minimaler **[Vite](https://vitejs.dev/)**-Build
@@ -31,6 +37,8 @@ Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
 | `ablauf.html`                  | Ablauf der Zusammenarbeit                   |
 | `ueber-uns.html`               | Über uns                                    |
 | `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |
+| `public/assets/style.css`      | Gemeinsames Stylesheet aller Inhaltsseiten  |
+| `public/.htaccess`             | Sicherheits-Header (Apache/LiteSpeed)       |
 | `public/robots.txt`            | Crawler-Steuerung (unverändert nach `dist/` kopiert) |
 | `public/sitemap.xml`           | XML-Sitemap                                 |
 | `public/og.jpg`                | Vorschaubild für Social-Media-Sharing (1200×630) |
