@@ -1,3 +1,10 @@
+# Weiterleitung www -> ohne www (offizielle Domain: burchardt-hausverwaltung.de)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.burchardt-hausverwaltung\.de$ [NC]
+  RewriteRule ^(.*)$ https://burchardt-hausverwaltung.de/$1 [R=301,L]
+</IfModule>
+
 # Sicherheits-Header (Apache/LiteSpeed – Hostinger unterstützt mod_headers)
 <IfModule mod_headers.c>
   # Verhindert MIME-Type-Sniffing
