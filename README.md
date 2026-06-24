@@ -5,7 +5,10 @@ Burchardt & Kollegen StBG PartG mbB (Dortmund / Ruhrgebiet).
 
 Inhaltlich ist es eine reine HTML/CSS-Website: Sämtliches CSS und das wenige
 JavaScript (Scroll-Reveal-Effekt) sind direkt in den jeweiligen HTML-Dateien
-eingebettet, einzige externe Ressource ist die Google-Font **Petrona**.
+eingebettet. Es werden **keine externen Ressourcen** geladen – die Schrift
+**Petrona** ist selbst gehostet (`public/fonts/`, eingebunden per `@font-face`
+mit `font-display: swap`). Das vermeidet render-blockierende CDN-Anfragen und
+ist DSGVO-konform (keine Übertragung von Besucher-IPs an Google Fonts).
 
 Damit die Seite auch auf Hosting-Umgebungen mit Framework-Erkennung (z. B.
 Hostinger „Web Apps") deploybar ist, liegt ein minimaler **[Vite](https://vitejs.dev/)**-Build
