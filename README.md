@@ -27,6 +27,7 @@ Der HTML-Code ist mit [Prettier](https://prettier.io/) formatiert
 | `nebenkostenabrechnung.html`   | Leistung: Nebenkostenabrechnung             |
 | `weg-verwaltung.html`          | Leistung: WEG-Verwaltung                    |
 | `digitale-hausverwaltung.html` | Leistung: Digitale Hausverwaltung           |
+| `verwaltung-und-steuerberatung.html` | Verzahnung von Hausverwaltung & Steuerberatung (für Kapitalanleger) |
 | `ablauf.html`                  | Ablauf der Zusammenarbeit                   |
 | `ueber-uns.html`               | Über uns                                    |
 | `kontakt.html`                 | Weiterleitung auf die Kontaktseite der Hauptseite |
