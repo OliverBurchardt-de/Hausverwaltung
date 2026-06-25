@@ -15,7 +15,8 @@
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
   # HTTPS erzwingen (bewusst OHNE preload – erst nach stabilem Betrieb erweitern)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # Content-Security-Policy: nur eigene Assets. Skripte ausschliesslich 'self'
+  # (kein ausfuehrbares Inline-JS mehr), Inline-Styles (style-Attribute/<style>)
+  # erlaubt, Formular-Ziel Microsoft Forms, kein Einbetten in fremde Frames.
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'self'; form-action https://forms.cloud.microsoft; frame-ancestors 'none'; object-src 'none'"
 </IfModule>
-
-# Hinweis: Eine echte Content-Security-Policy (eigene Assets + forms.cloud.microsoft
-# + fonts) sollte separat getestet eingeführt werden, um nichts zu blockieren.
